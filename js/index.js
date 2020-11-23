@@ -4,6 +4,7 @@ const auth = firebase.auth();
 const logout = document.getElementById('logout');
 const nombre = document.getElementById('nombre');
 const misContactos = document.getElementById('misContactos');
+const agregarc = document.getElementById('agregarc');
 
 //para saber el usuario auten
 auth.onAuthStateChanged(
@@ -22,7 +23,7 @@ auth.onAuthStateChanged(
     );
 
 
-    database.ref ('semana14/users/'+user.vid+ '/contacts').on('value',function(data){
+    database.ref ('semana14/users/'+user.uid+ '/contacts').on('value',function(data){
         misContactos.innerHTML='';
         data.forEach(
             
@@ -60,6 +61,12 @@ logout.addEventListener('click',()=>{
         }
     );
 });
+
+agregarc.addEventListener('click', ()=>{
+    window.location.href = "contacto.html";
+});
+
+
 
 
 
